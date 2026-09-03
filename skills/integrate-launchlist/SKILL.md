@@ -1,7 +1,7 @@
 ---
 name: integrate-launchlist
 description: Wire LaunchList into code. Covers the REST API with llk_ bearer keys, scopes, idempotency keys, cursor pagination and the error envelope; every way to capture a signup from an inline embed to an enhanced form to plain no-JavaScript HTML to a popup to a React or SPA mount to a direct API call; and signed outbound webhooks with signature verification and retry handling. Use when a developer asks how to call the LaunchList API, embed a waitlist signup form, add a form to a site or app, verify a webhook signature, or integrate a waitlist into a backend.
-compatibility: Needs network access to api.getlaunchlist.com and embed.getlaunchlist.com. Write operations need an llk_ API key created in the LaunchList dashboard.
+compatibility: Needs network access to api.getlaunchlist.com, mcp.getlaunchlist.com and embed.getlaunchlist.com. Write operations need an llk_ API key created in the LaunchList dashboard.
 ---
 
 # Integrating LaunchList
@@ -309,7 +309,7 @@ Assume **at-least-once** delivery, never exactly-once. Record handled event ids 
 
 ## The MCP server
 
-LaunchList also exposes a remote MCP server at `https://api.getlaunchlist.com/mcp`, authenticated
+LaunchList also exposes a remote MCP server at `https://mcp.getlaunchlist.com`, authenticated
 with the same `llk_` bearer key. It gives an agent eleven curated tools: `get_workspace`,
 `list_projects`, `get_project`, `get_audience_stats`, `search_audience`, `get_contact` (read-only),
 and `capture_signup`, `update_contact_stage`, `invite_contacts`, `unsubscribe_contact`,

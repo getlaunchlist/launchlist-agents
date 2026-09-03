@@ -92,7 +92,7 @@ use. Two things are true of all of them:
 ```json
 {
     "type": "streamable-http",
-    "url": "https://api.getlaunchlist.com/mcp",
+    "url": "https://mcp.getlaunchlist.com",
     "headers": { "Authorization": "Bearer ${LAUNCHLIST_API_KEY}" }
 }
 ```
