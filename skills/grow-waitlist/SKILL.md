@@ -249,7 +249,7 @@ Work through these in order, and stop at the first one that explains it. Do not 
 ## Reference
 
 - Product facts and current pricing: `https://app.getlaunchlist.com/llms.txt`
-- Documentation: `https://getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
+- Documentation: `https://app.getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
   Markdown)
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
 - Reading a contact's live position and referrals over the API:

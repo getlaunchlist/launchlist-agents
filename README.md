@@ -146,7 +146,7 @@ generated from the plan registry and cannot contradict the billing page.
 
 ## Links
 
-- Documentation: <https://getlaunchlist.com/help/docs> (append `.md` to any page URL for raw
+- Documentation: <https://app.getlaunchlist.com/help/docs> (append `.md` to any page URL for raw
   Markdown)
 - OpenAPI 3.1 spec: <https://api.getlaunchlist.com/v1/openapi.json>
 - Product facts and pricing for models: <https://app.getlaunchlist.com/llms.txt>

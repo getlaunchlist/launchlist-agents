@@ -265,7 +265,7 @@ no rates, no deltas, no verdicts. "Too early to read a trend" is a complete and 
 ## Reference
 
 - Product facts and current pricing: `https://app.getlaunchlist.com/llms.txt`
-- Documentation: `https://getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
+- Documentation: `https://app.getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
   Markdown)
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
 - Useful reads: `GET /v1/contacts/count`, `GET /v1/contacts?project=prj_...`,

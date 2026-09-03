@@ -324,7 +324,7 @@ the plugin for the current connection details.
 
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json` (unauthenticated, and the source
   of truth for every shape here)
-- Documentation: `https://getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
+- Documentation: `https://app.getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
   Markdown)
 - API guides: authentication, errors, idempotency, pagination and rate limits each have their own
   docs page under `/help/docs/api/`

@@ -278,7 +278,7 @@ In rough order of value:
 
 - Product facts and current pricing: `https://app.getlaunchlist.com/llms.txt`
 - How an agent operates the API: `https://app.getlaunchlist.com/skill.md`
-- Documentation: `https://getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
+- Documentation: `https://app.getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
   Markdown; the docs index for models is `/llms.txt` on the docs host)
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
 - Related skills: `grow-waitlist`, `analyze-launch`, `integrate-launchlist`
