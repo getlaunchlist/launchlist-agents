@@ -97,11 +97,16 @@ use. Two things are true of all of them:
 }
 ```
 
-Create an API key in **Embed & API → API** in the LaunchList dashboard and export it as
-`LAUNCHLIST_API_KEY`. Environment-variable expansion inside headers is not part of the Agent Plugins
-specification, so a client that does not support it needs the key written in directly. Do not commit
-a file with a real key in it: keys are `llk_live_`-prefixed precisely so automated secret scanners
-recognize a leaked one.
+Clients that support MCP OAuth can drop the `headers` line entirely: the server offers an
+OAuth 2.1 consent flow (discovery via the standard well-known documents), where a workspace member
+approves the agent's access to one workspace and can revoke it from the dashboard at any time.
+That is the preferred path for conversational use.
+
+For clients without OAuth support, create an API key in **Embed & API → API** in the LaunchList
+dashboard and export it as `LAUNCHLIST_API_KEY`. Environment-variable expansion inside headers is
+not part of the Agent Plugins specification, so a client that does not support it needs the key
+written in directly. Do not commit a file with a real key in it: keys are `llk_live_`-prefixed
+precisely so automated secret scanners recognize a leaked one.
 
 The server exposes eleven curated tools, every one carrying a title and read-only/destructive
 annotations, with visibility filtered by the key's scopes (a key never sees a tool it cannot call):
