@@ -68,10 +68,10 @@ cp -r skills/* .claude/skills/            # this project only, Claude Code
 ### Claude Code, as a plugin
 
 Claude Code installs plugins from a marketplace repository. This package is published at
-https://github.com/getLaunchList/launchlist-agents; add it as a marketplace and install from it:
+https://github.com/getlaunchlist/launchlist-agents; add it as a marketplace and install from it:
 
 ```text
-/plugin marketplace add getLaunchList/launchlist-agents
+/plugin marketplace add getlaunchlist/launchlist-agents
 /plugin install launchlist@launchlist-agents
 ```
 
