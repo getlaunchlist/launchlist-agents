@@ -1,0 +1,14 @@
+{
+    "name": "launchlist-agents",
+    "owner": {
+        "name": "LaunchList",
+        "url": "https://getlaunchlist.com"
+    },
+    "plugins": [
+        {
+            "name": "launchlist",
+            "source": "./",
+            "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, and wire it into code."
+        }
+    ]
+}

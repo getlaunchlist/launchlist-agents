@@ -1,0 +1,28 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "launchlist",
+    "version": "0.1.0",
+    "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, and wire it into code.",
+    "author": {
+        "name": "LaunchList",
+        "url": "https://getlaunchlist.com"
+    },
+    "homepage": "https://getlaunchlist.com",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/getLaunchList/launchlist-agents"
+    },
+    "keywords": [
+        "launchlist",
+        "waitlist",
+        "launch",
+        "referrals",
+        "signup-form",
+        "early-access",
+        "landing-page",
+        "email-capture",
+        "growth",
+        "analytics"
+    ]
+}
