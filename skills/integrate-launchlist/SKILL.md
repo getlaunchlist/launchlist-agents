@@ -310,13 +310,14 @@ Assume **at-least-once** delivery, never exactly-once. Record handled event ids 
 ## The MCP server
 
 LaunchList also exposes a remote MCP server at `https://api.getlaunchlist.com/mcp`, authenticated
-with the same `llk_` bearer key. It gives an agent direct tools over the same surface the REST API
-covers: reading the workspace and its projects, searching an audience and reading a contact, audience
-statistics, capturing a signup, minting invitations, and moving a contact between pipeline stages.
+with the same `llk_` bearer key. It gives an agent eleven curated tools: `get_workspace`,
+`list_projects`, `get_project`, `get_audience_stats`, `search_audience`, `get_contact` (read-only),
+and `capture_signup`, `update_contact_stage`, `invite_contacts`, `unsubscribe_contact`,
+`resubscribe_contact` (writes). There is deliberately no delete tool.
 
 Use it when the client supports MCP and the work is conversational. Use the REST API when you are
-writing code that has to run unattended. The tool names are settling as the server ships, so
-discover them from the server rather than assuming them, and re-read this section's `mcp.json` in
+writing code that has to run unattended. Tool visibility follows your key's scopes, so confirm
+what you have with `tools/list` rather than assuming, and re-read this section's `mcp.json` in
 the plugin for the current connection details.
 
 ## Reference

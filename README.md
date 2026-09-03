@@ -103,11 +103,16 @@ specification, so a client that does not support it needs the key written in dir
 a file with a real key in it: keys are `llk_live_`-prefixed precisely so automated secret scanners
 recognize a leaked one.
 
-The server exposes tools over the same surface the REST API covers: reading the workspace and its
-projects, searching an audience and reading a contact, audience statistics, capturing a signup,
-minting invitations, and moving a contact between pipeline stages. **The exact tool names are still
-being finalized as the server ships**, so discover them from the server rather than hardcoding them,
-and expect this file to gain a tool list once they settle.
+The server exposes eleven curated tools, every one carrying a title and read-only/destructive
+annotations, with visibility filtered by the key's scopes (a key never sees a tool it cannot call):
+
+- Read-only: `get_workspace`, `list_projects`, `get_project`, `get_audience_stats`,
+  `search_audience`, `get_contact`
+- Writes: `capture_signup`, `update_contact_stage`, `invite_contacts`, `unsubscribe_contact`,
+  `resubscribe_contact`
+
+There is deliberately no delete tool. Still prefer discovering the list from the server
+(`tools/list`) over trusting this file: your key's scopes decide what you actually see.
 
 A key is owned by the workspace rather than by the person who created it, carries only the scopes
 you pick at creation, and can be pinned to a single project. Pin one to a throwaway project when
