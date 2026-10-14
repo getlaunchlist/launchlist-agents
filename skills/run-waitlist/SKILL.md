@@ -66,7 +66,8 @@ and back out of it revokes their code.
 ## Inviting the next group
 
 1. Decide who with the founder: "the next 20 by signup date", "everyone tagged beta", "the top
-   referrers". Use `search_audience` for a handful, or `preview_segment` to count a filter.
+   referrers". `search_audience` lists them, filtered by `tag`, `segment`, stage or date;
+   `preview_segment` counts a filter first.
 2. Read the list back to the founder by name and get a yes. Invitations are real emails and cannot
    be unsent.
 3. `invite_contacts` with up to 50 handles per call and a `label` that names the wave ("First 50
@@ -105,8 +106,10 @@ LaunchList editor, so say that every time you finish an edit.
   `expected_version`. If it is refused because the page changed, read it again and retry once.
 - For an exact structural change, use `apply_page_edits` with the block ids and limits from
   `get_page`.
-- A brand-new page from a description is `create_page`. Page generation and AI edits cost the
-  workspace a metered amount, so make one per request and confirm before a run of them.
+- Rewriting the whole page from a description is `create_page`. A project has one launch page,
+  so it replaces that page's draft (the founder can restore the old one from the editor's template
+  picker): confirm before calling it. Page generation and AI edits cost the workspace a metered
+  amount, so make one per request and confirm before a run of them.
 
 Give the founder the draft link and tell them to look at it before publishing.
 
@@ -117,7 +120,8 @@ Always two steps, with the founder in between:
 1. `save_broadcast` to write the draft. Use `text` for a personal note from the founder,
    `markdown` for a formatted email. Merge tags like `{{first_name|there}}` work. The unsubscribe
    link and postal address are added automatically, so do not write your own.
-2. Offer `send_test_broadcast` to someone on the founder's team if they have not seen it rendered.
+2. Offer `send_test_broadcast` if the founder has not seen it rendered. Without an `email` it goes
+   to the person who connected you; with an API key, ask which teammate.
 3. `prepare_broadcast_send` counts recipients, lists who is skipped and why, and returns a sample
    and a `confirmation_token`. Show the founder the count, the skips and the sample. If `problems`
    is not empty, fix those first. If `extra_emails` is set, the send needs more emails than the

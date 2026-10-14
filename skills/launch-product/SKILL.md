@@ -89,9 +89,9 @@ and two positions, because they are two different waitlists.
 
 The default when there is no website. Every project gets a public launch page, built from
 ready-made blocks in the page editor (**Pages** in the dashboard) and server-rendered so search
-engines index it properly rather than seeing an empty shell. Over MCP, `create_page` drafts a page
-from a description and `update_page` changes a draft from a plain instruction. Both only ever write
-a draft.
+engines index it properly rather than seeing an empty shell. Over MCP, `create_page` rewrites the
+project's one launch page draft from a description and `update_page` changes a draft from a plain
+instruction. Both only ever write a draft.
 
 Draft the content, do not overbuild it. A headline, one sentence, and a signup button is a complete
 launch page. Sections like features, FAQ and a countdown can be added any time. Shipping today beats

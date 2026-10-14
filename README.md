@@ -43,9 +43,7 @@ mcp.json               Agent Plugins 1.0 MCP server declaration (ChatGPT, Codex 
 .claude-plugin/
   plugin.json          Claude plugin manifest
   marketplace.json     Claude Code marketplace entry for this repository
-assets/
-  logo.png             Listing logo
-  icon.png             Composer icon
+assets/                Listing icons for the OpenAI plugin directory (nothing runs them)
 skills/
   launch-product/SKILL.md
   grow-waitlist/SKILL.md
