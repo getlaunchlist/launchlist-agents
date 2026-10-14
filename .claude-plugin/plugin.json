@@ -9,7 +9,10 @@
     },
     "homepage": "https://getlaunchlist.com",
     "license": "MIT",
+    "documentationUrl": "https://app.getlaunchlist.com/help/docs/mcp/connect",
+    "supportUrl": "mailto:contact@getlaunchlist.com",
     "privacyPolicyUrl": "https://getlaunchlist.com/legal/privacy",
+    "termsOfServiceUrl": "https://getlaunchlist.com/legal/terms",
     "repository": "https://github.com/getlaunchlist/launchlist-agents",
     "keywords": [
         "launchlist",
