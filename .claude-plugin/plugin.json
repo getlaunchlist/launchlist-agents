@@ -9,6 +9,7 @@
     },
     "homepage": "https://getlaunchlist.com",
     "license": "MIT",
+    "privacyPolicyUrl": "https://getlaunchlist.com/legal/privacy",
     "repository": "https://github.com/getlaunchlist/launchlist-agents",
     "keywords": [
         "launchlist",
