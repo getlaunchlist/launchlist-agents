@@ -1,8 +1,8 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "launchlist",
-    "version": "0.1.0",
-    "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, and wire it into code.",
+    "version": "0.2.0",
+    "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, run it day to day, and wire it into code.",
     "author": {
         "name": "LaunchList",
         "url": "https://getlaunchlist.com"
@@ -24,5 +24,27 @@
         "email-capture",
         "growth",
         "analytics"
-    ]
+    ],
+    "extensions": {
+        "com.openai": {
+            "interface": {
+                "displayName": "LaunchList",
+                "shortDescription": "Run your waitlist and launch",
+                "longDescription": "LaunchList is pre-launch waitlist software for founders. Connect your workspace to see how your launch is doing, look people up, invite the next group, tag and segment your audience, draft launch page changes and send updates to your waitlist. Nothing is published or emailed without your yes: pages are only ever saved as drafts, and a broadcast goes out in two steps with a recipient count in between.",
+                "developerName": "LaunchList",
+                "category": "Productivity",
+                "capabilities": ["Read", "Write"],
+                "websiteURL": "https://getlaunchlist.com",
+                "privacyPolicyURL": "https://getlaunchlist.com/legal/privacy",
+                "termsOfServiceURL": "https://getlaunchlist.com/legal/terms",
+                "defaultPrompt": [
+                    "How is my waitlist doing this week?",
+                    "Invite the next 20 people on my waitlist"
+                ],
+                "brandColor": "#22C563",
+                "composerIcon": "./assets/icon.png",
+                "logo": "./assets/logo.png"
+            }
+        }
+    }
 }

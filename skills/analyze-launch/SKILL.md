@@ -1,7 +1,7 @@
 ---
 name: analyze-launch
 description: Read a LaunchList launch honestly and say what to do next. Covers signup sources and referring sites, conversion rate, K-factor and referred share, verification and deliverability states, the trust verdict tiers, the pipeline stage funnel, and email delivery numbers. Explains what each metric means, what action follows from it, and which conclusions the data cannot support. Use when someone asks how their waitlist or launch is doing, wants analytics interpreted, asks why signups dropped or referrals stalled, or wants to know what to work on next.
-compatibility: Needs network access to api.getlaunchlist.com. Analytics charts live in the LaunchList dashboard; counts and contact state are readable over the REST API with a contacts:read key.
+compatibility: Needs network access to api.getlaunchlist.com. Analytics charts live in the LaunchList dashboard; counts and contact state are readable over the REST API with a contacts:read key, or through the LaunchList MCP server.
 ---
 
 # Reading a launch
@@ -41,41 +41,53 @@ are active. When you cannot explain why, state the fact and stop.
 
 ## The four views
 
-Analytics has four tabs, over a selectable window of the last 7, 28 (the default) or 90 days, or all
-time. Comparison against the previous period is unavailable on "all time", so a delta simply does
-not exist there.
+Analytics has four tabs (**Overview · People · Referrals · Emails**), and a fifth, **Invites**,
+once the project has invited somebody. Overview and Referrals read over a selectable window, each
+number against the window before it. Comparison is unavailable on "all time", so a delta simply
+does not exist there.
 
 ### Overview
 
-The headline vitals:
+One sentence on signups for the window against the window before, then four numbers:
 
 | Metric | What it is |
 | --- | --- |
 | **Signups** | New contacts in the window |
-| **Conversion rate** | Signups divided by page views |
-| **K-factor** | Referrals per verified signup |
-| **Referred share** | The share of signups that came through a referral link |
+| **Visits that signed up** | The share of hosted-page visits that became a signup |
+| **Confirmed** | The share of signups that confirmed their address |
+| **Referred** | The share of signups that came through a referral link |
 
-Then **Acquisition** (channels, landing pages, referring sites), **Audience** (the pipeline funnel
-and deliverable reach), and a "what to do next" section.
+Then signups over time, up to three "what to do next" cards (each shown only while it is true), and
+where signups come from: channels, landing pages and referring sites, on the plan that includes
+them. The pipeline funnel is not here: it is on **Audience → Signups**.
 
 ### People
 
-Where the audience is and what they use: countries and continents, identity type, devices, browsers,
-operating systems, timezones and languages.
+Where the audience is and what they use: countries and continents, devices, browsers, operating
+systems, languages and timezones.
 
 ### Referrals
 
-K-factor, referred share, active sharers, total referrals, an organic-versus-referred growth curve,
-the referral loop funnel (referred in → verified → shared again), reward tiers, and the leaderboard.
+Referred signups, people who referred, and referrals per referrer for the window, with the viral
+coefficient stated in words under them. Then referred against organic signups over time, a funnel
+(signed up, referred at least one signup, reached the first reward that takes two or more
+referrals), the rewards as a ladder, the leaderboard, and how many referrals were blocked or held.
+Nothing records a referral link being copied or shared, so there is no "shared" step: the earliest
+thing known about a referrer is their first referred signup.
+
+### Invites
+
+How many invited people used their code, and how each batch did. People are invited from
+**Audience → Invites**.
 
 ### Emails
 
-Emails sent, delivered, bounce rate, spam complaints, and a per-send table.
+Emails sent, delivered, bounced, marked as spam and unsubscribed. The log of single sends is
+**Emails → Activity**.
 
-> **Open and click tracking do not exist yet.** They are not reported, deliberately, because they
-> could only ever read zero. If a founder asks about open rates, say the product does not track them
-> yet rather than reaching for a number that looks like one.
+> **LaunchList does not report whether an email was read.** If a founder asks how many people read
+> an email, say the product does not measure that, rather than reaching for a number that looks
+> like one.
 
 ## What each number means, and what follows from it
 
@@ -227,7 +239,7 @@ Say "I cannot tell from this" rather than filling these in:
   algorithm change behind them.
 - **Whether a channel is worth the money.** There is no spend in this data.
 - **Whether a signup will convert.** Trust verdicts predict "is this a real person", not intent.
-- **Whether an email was read.** Open and click tracking do not exist.
+- **Whether an email was read.** LaunchList does not measure it.
 - **Whether an unrevealed deliverability verdict is good or bad.** It is unrevealed.
 - **What a suppressed public widget count is.** Small cohorts are suppressed on purpose, and the
   suppression is a privacy floor, not a bug.
@@ -270,4 +282,4 @@ no rates, no deltas, no verdicts. "Too early to read a trend" is a complete and 
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
 - Useful reads: `GET /v1/contacts/count`, `GET /v1/contacts?project=prj_...`,
   `GET /v1/contacts/{id}/position`, `GET /v1/contacts/{id}/referrals`
-- Related skills: `launch-product`, `grow-waitlist`, `integrate-launchlist`
+- Related skills: `launch-product`, `grow-waitlist`, `integrate-launchlist`, `run-waitlist`

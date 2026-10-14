@@ -1,5 +1,6 @@
 {
     "name": "launchlist-agents",
+    "description": "LaunchList's official plugin: skills for launching and running a waitlist, plus the LaunchList MCP server.",
     "owner": {
         "name": "LaunchList",
         "url": "https://getlaunchlist.com"
@@ -8,7 +9,7 @@
         {
             "name": "launchlist",
             "source": "./",
-            "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, and wire it into code."
+            "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, run it day to day, and wire it into code."
         }
     ]
 }

@@ -254,4 +254,4 @@ Work through these in order, and stop at the first one that explains it. Do not 
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
 - Reading a contact's live position and referrals over the API:
   `GET /v1/contacts/{id}/position` and `GET /v1/contacts/{id}/referrals`
-- Related skills: `launch-product`, `analyze-launch`, `integrate-launchlist`
+- Related skills: `launch-product`, `analyze-launch`, `integrate-launchlist`, `run-waitlist`

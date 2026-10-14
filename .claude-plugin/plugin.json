@@ -1,7 +1,8 @@
 {
     "name": "launchlist",
-    "version": "0.1.0",
-    "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, and wire it into code.",
+    "displayName": "LaunchList",
+    "version": "0.2.0",
+    "description": "Launch a product well with LaunchList: build a waitlist, grow it with referrals, read what the numbers actually say, run it day to day, and wire it into code.",
     "author": {
         "name": "LaunchList",
         "url": "https://getlaunchlist.com"

@@ -1,7 +1,7 @@
 ---
 name: launch-product
 description: Take a product from an idea to a live waitlist on LaunchList. Covers creating the project, choosing between a hosted launch page and an embedded form on the founder's own site, configuring the signup form and how people are identified, deciding on email verification, turning on referrals, testing, and publishing with the founder's approval. Use when someone wants to launch a product, start or set up a waitlist, collect signups, build a coming-soon or early-access page, or use LaunchList for the first time.
-compatibility: Needs network access to api.getlaunchlist.com. Write operations need a LaunchList API key or the LaunchList MCP server; page and form editing happen in the dashboard.
+compatibility: Needs network access to api.getlaunchlist.com. Write operations need a LaunchList API key or the LaunchList MCP server. An agent can draft and edit a launch page over MCP; publishing a page and editing a form happen in the dashboard.
 ---
 
 # Launching a product with LaunchList
@@ -9,7 +9,7 @@ compatibility: Needs network access to api.getlaunchlist.com. Write operations n
 Your job is to get a founder from "I'm building X" to a live waitlist that is actually collecting
 signups, without publishing anything they have not seen and approved.
 
-LaunchList is a waitlist and launch platform. The pieces are:
+LaunchList is pre-launch waitlist software for founders. The pieces are:
 
 ```text
 Workspace          what gets billed, and who the teammates are
@@ -87,8 +87,11 @@ and two positions, because they are two different waitlists.
 
 ### Hosted page
 
-The default when there is no website. Every project gets a public launch page built in a visual
-editor, server-rendered so search engines index it properly rather than seeing an empty shell.
+The default when there is no website. Every project gets a public launch page, built from
+ready-made blocks in the page editor (**Pages** in the dashboard) and server-rendered so search
+engines index it properly rather than seeing an empty shell. Over MCP, `create_page` drafts a page
+from a description and `update_page` changes a draft from a plain instruction. Both only ever write
+a draft.
 
 Draft the content, do not overbuild it. A headline, one sentence, and a signup button is a complete
 launch page. Sections like features, FAQ and a countdown can be added any time. Shipping today beats
@@ -114,7 +117,7 @@ scoring, the verification email, webhooks and automations happen no matter which
 can use several at once, and deduplication is per project, so one person arriving through three
 channels is one contact.
 
-Get the real form handle (`frm_...`) and the real snippet from **Embed & API → Embeds** in the
+Get the real form handle (`frm_...`) and the real snippet from **Embed & API → Your website** in the
 dashboard rather than reconstructing it. The plain-HTML method in particular has an `action` URL
 that must be copied exactly.
 
@@ -207,7 +210,7 @@ two referrals is a good default if they want one.
 
 ## Step 7: Test it end to end before anyone sees it
 
-Turn on **test mode** from the top bar, submit a real address the founder controls through the live
+Turn on **Test mode** in **Project settings → General**, submit a real address the founder controls through the live
 page or the embed, then open **Audience**. The signup should appear within a second, with the page
 it came from, a trust verdict, and a referral code of its own.
 
@@ -228,13 +231,15 @@ Do not publish on your own initiative. Show them what exists:
 - Whether verification is on.
 - What a signup sees immediately after submitting.
 
-Then ask directly whether to publish. Wait for a yes.
+Then ask directly whether they are ready to publish. Wait for a yes.
 
 ## Step 9: Publish
 
-On a yes, publish and report the real live URL that came back, not one you constructed. Until
-publish, everything saves to a draft and nothing is public, so nothing before this step can be seen
-by a visitor.
+Publishing is the founder's step. No tool publishes a page: on a yes, ask them to open the page
+editor and press **Publish** (the same control is on **Embed & API → Hosted page**). Then read the
+page back with `list_pages` and report the real live URL it returns, not one you constructed. Until
+they publish, everything saves to a draft and nothing is public, so nothing before this step can be
+seen by a visitor.
 
 If they are embedding instead, "publish" is them pasting the snippet on their own site. Give them
 the snippet, tell them where the script tag goes, and ask them to confirm it renders before you call
@@ -272,7 +277,7 @@ In rough order of value:
    terminal `declined` does not match how the launch actually runs. Stages are founder-editable and
    tracked by role, so renaming one never breaks an automation.
 4. Read the numbers with the `analyze-launch` skill once there is enough data to mean anything.
-5. Start letting people in with early access when the product is ready.
+5. Start letting people in from **Audience → Invites** when the product is ready.
 
 ## Reference
 
@@ -281,4 +286,4 @@ In rough order of value:
 - Documentation: `https://app.getlaunchlist.com/help/docs` (append `.md` to any docs page URL for raw
   Markdown; the docs index for models is `/llms.txt` on the docs host)
 - OpenAPI 3.1 spec: `https://api.getlaunchlist.com/v1/openapi.json`
-- Related skills: `grow-waitlist`, `analyze-launch`, `integrate-launchlist`
+- Related skills: `grow-waitlist`, `analyze-launch`, `integrate-launchlist`, `run-waitlist`

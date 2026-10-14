@@ -51,7 +51,7 @@ form:
 <script src="https://embed.getlaunchlist.com/v1/embed.js" async></script>
 ```
 
-Get the real form handle (`frm_...`) and the exact snippet from **Embed & API → Embeds** in the
+Get the real form handle (`frm_...`) and the exact snippet from **Embed & API → Your website** in the
 dashboard. Do not reconstruct a snippet from this file.
 
 ### Inline embed
@@ -147,7 +147,8 @@ client-side route change.
 
 Aggregate, non-identifying embeds: counter, leaderboard (names masked), milestone, countdown, plus a
 standalone changelog embed. Configuration travels as `data-*` attributes, so the same widget reads
-differently on two sites with nothing stored.
+differently on two sites with nothing stored. In the dashboard they are the **Widgets** section of
+**Embed & API → Your website**, where each one has its own code to copy.
 
 A public slice below a minimum cohort size is **suppressed rather than shown**. That is a privacy
 floor, not a failure, and it is not something to work around.
@@ -312,15 +313,30 @@ Assume **at-least-once** delivery, never exactly-once. Record handled event ids 
 LaunchList also exposes a remote MCP server at `https://mcp.getlaunchlist.com`. Clients that
 support OAuth connect with no key at all: the server offers an OAuth 2.1 consent flow where a
 workspace member approves the agent's access to one workspace. Clients that do not support OAuth
-send the same `llk_` bearer key the REST API takes. It gives an agent eleven curated tools: `get_workspace`,
-`list_projects`, `get_project`, `get_audience_stats`, `search_audience`, `get_contact` (read-only),
-and `capture_signup`, `update_contact_stage`, `invite_contacts`, `unsubscribe_contact`,
-`resubscribe_contact` (writes). There is deliberately no delete tool.
+send the same `llk_` bearer key the REST API takes. It gives an agent a curated set of tools, in
+five groups:
+
+- **Discovery and navigation**: `get_workspace`, `list_projects`, `get_project`, and
+  `locate_setting`, which turns "where do I set up X" into a link to the right dashboard screen.
+- **Audience**: `get_audience_stats`, `search_audience`, `get_contact`, `capture_signup`,
+  `update_contact`, `update_contact_stage`, `invite_contacts`, `unsubscribe_contact`,
+  `resubscribe_contact`, `tag_contacts`, `untag_contacts`, `import_contacts`, `get_import`.
+- **Segments and automations**: `list_segments`, `preview_segment`, `create_segment`,
+  `list_automations` (read-only: no tool enrolls a contact).
+- **Pages**: `list_pages`, `get_page`, `create_page`, `update_page`, `apply_page_edits`. The three
+  writes only ever change a draft. No tool publishes a page.
+- **Broadcasts**: `list_broadcasts`, `get_broadcast`, `save_broadcast`, `send_test_broadcast`,
+  `prepare_broadcast_send`, `send_broadcast`, `pause_broadcast`, `resume_broadcast`,
+  `cancel_broadcast`. Sending is two steps: prepare returns the recipient count and a
+  confirmation token, and send spends the token.
+
+There is deliberately no delete tool. `tools/list` is the current list; trust it over this one.
 
 Use it when the client supports MCP and the work is conversational. Use the REST API when you are
 writing code that has to run unattended. Tool visibility follows your key's scopes, so confirm
-what you have with `tools/list` rather than assuming, and re-read this section's `mcp.json` in
-the plugin for the current connection details.
+what you have with `tools/list` rather than assuming, and read the plugin's `.mcp.json` (or
+`mcp.json`) for the current connection details. For the order to use the tools in day to day, see
+the `run-waitlist` skill.
 
 ## Reference
 
@@ -332,4 +348,4 @@ the plugin for the current connection details.
   docs page under `/help/docs/api/`
 - Product facts and current pricing: `https://app.getlaunchlist.com/llms.txt`
 - How an agent operates LaunchList through the API: `https://app.getlaunchlist.com/skill.md`
-- Related skills: `launch-product`, `grow-waitlist`, `analyze-launch`
+- Related skills: `launch-product`, `grow-waitlist`, `analyze-launch`, `run-waitlist`

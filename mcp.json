@@ -3,10 +3,7 @@
     "mcpServers": {
         "launchlist": {
             "type": "streamable-http",
-            "url": "https://mcp.getlaunchlist.com",
-            "headers": {
-                "Authorization": "Bearer ${LAUNCHLIST_API_KEY}"
-            }
+            "url": "https://mcp.getlaunchlist.com"
         }
     }
 }

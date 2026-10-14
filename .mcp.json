@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+        "launchlist": {
+            "type": "http",
+            "url": "https://mcp.getlaunchlist.com"
+        }
+    }
+}
